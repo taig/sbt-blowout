@@ -11,6 +11,13 @@ ThisBuild / licenses := List("MIT" -> url("https://raw.githubusercontent.com/tai
 ThisBuild / scalaVersion := Version.Scala
 ThisBuild / versionScheme := Some("early-semver")
 
+blowoutGenerators ++= {
+  val workflows = file(".github") / "workflows"
+  BlowoutYamlGenerator.strict(workflows / "main.yml", GithubActionsGenerator.main) ::
+    BlowoutYamlGenerator.strict(workflows / "branches.yml", GithubActionsGenerator.branches) ::
+    Nil
+}
+
 lazy val core = project
   .in(file("modules/core"))
   .enablePlugins(SbtPlugin)

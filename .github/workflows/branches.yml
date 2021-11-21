@@ -1,40 +1,40 @@
 name: CI
-
-on:
+'on':
   pull_request:
     branches:
-      - 'main'
-
+    - main
 jobs:
-  test:
-    name: ✅ Unit & integration tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup Java JDK
-        uses: actions/setup-java@v2.3.1
-        with:
-          distribution: 'temurin'
-          java-version: '11'
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-      - name: Cache
-        uses: coursier/cache-action@v6.3
-      - name: Tests
-        run: sbt scripted
   lint:
     name: ⚠️ Fatal warnings and code formatting
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Java JDK
-        uses: actions/setup-java@v2.3.1
-        with:
-          distribution: 'temurin'
-          java-version: '11'
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-      - name: Cache
-        uses: coursier/cache-action@v6.3
-      - name: Code formatting
-        run: sbt scalafmtCheckAll
-      - name: Fatal warnings
-        run: sbt -Dmode=strict +compile
+    - name: Setup Java JDK
+      uses: actions/setup-java@v2.3.1
+      with:
+        distribution: temurin
+        java-version: '11'
+    - name: Checkout
+      uses: actions/checkout@v2.4.0
+    - name: Cache
+      uses: coursier/cache-action@v6.3
+    - name: Workflows
+      run: sbt blowoutCheck
+    - name: Code formatting
+      run: sbt scalafmtCheckAll
+    - name: Fatal warnings
+      run: sbt -Dmode=strict compile
+  test:
+    name: ✅ Unit & integration tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Setup Java JDK
+      uses: actions/setup-java@v2.3.1
+      with:
+        distribution: temurin
+        java-version: '11'
+    - name: Checkout
+      uses: actions/checkout@v2.4.0
+    - name: Cache
+      uses: coursier/cache-action@v6.3
+    - name: Tests
+      run: sbt scripted
