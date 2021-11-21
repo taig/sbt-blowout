@@ -3,9 +3,9 @@ package io.taig.blowout
 import sbt.plugins.JvmPlugin
 import sbt.{AutoPlugin, PluginTrigger, Plugins}
 
-object BlowoutYamlPlugin extends AutoPlugin {
+object BlowoutJsonPlugin extends AutoPlugin {
   object autoImport {
-    val BlowoutYamlGenerator = io.taig.blowout.BlowoutYamlGenerator
+    val BlowoutJsonGenerator = io.taig.blowout.BlowoutJsonGenerator
   }
 
   override def requires: Plugins = JvmPlugin

@@ -1,4 +1,5 @@
 val Version = new {
+  val Circe = "0.14.1"
   val CirceYaml = "0.14.1"
   val Scala = "2.12.15"
 }
@@ -21,6 +22,17 @@ lazy val core = project
         Seq("-Xmx1024M", "-Dplugin.version=" + version.value)
     }
   )
+
+lazy val json = project
+  .in(file("modules/json"))
+  .enablePlugins(SbtPlugin)
+  .settings(
+    name := "sbt-blowout-json",
+    libraryDependencies ++=
+      "io.circe" %% "circe-core" % Version.Circe ::
+        Nil
+  )
+  .dependsOn(core)
 
 lazy val yaml = project
   .in(file("modules/yaml"))

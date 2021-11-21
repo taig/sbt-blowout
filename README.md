@@ -3,12 +3,13 @@
 [![CI & CD](https://github.com/taig/sbt-blowout/actions/workflows/main.yml/badge.svg)](https://github.com/taig/sbt-blowout/actions/workflows/main.yml)
 [![sbt-blowout Scala version support](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core/latest-by-scala-version.svg)](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core)
 
-> An sbt plugin to generate configuration files at build time
+> sbt plugin to generate configuration files at build time
 
 ## Installation
 
 ```scala
 addSbtPlugin("io.taig" % "sbt-blowout-core" % "[version]")
+addSbtPlugin("io.taig" % "sbt-blowout-circe" % "[version]")
 addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
 ```
 
