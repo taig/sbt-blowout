@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.3.1
+        with:
+          distribution: 'temurin'
+          java-version: '11'
       - name: Checkout
         uses: actions/checkout@v2.4.0
       - name: Cache
@@ -24,6 +27,9 @@ jobs:
     steps:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.3.1
+        with:
+          distribution: 'temurin'
+          java-version: '11'
       - name: Checkout
         uses: actions/checkout@v2.4.0
       - name: Cache

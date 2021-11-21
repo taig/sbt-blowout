@@ -16,17 +16,21 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
 
 1. Register generators
 
-    ```scala
-    blowoutGenerators += BlowoutGenerator.strict(
-      file("my-config.yml"),
-      content = s"""version: ${scalaVersion.value}""".stripMargin
-    )
-    ```
+   ```scala
+   blowoutGenerators += BlowoutGenerator.strict(
+     file("my-config.yml"),
+     content = s"""version: ${scalaVersion.value}""".stripMargin
+   )
+   ```
 
 2. Install generators in sbt
 
-    ```shell
-    sbt blowoutGenerate
-    ```
+   ```shell
+   sbt blowoutGenerate
+   ```
 
-3. Commit and push generated files
+3. Commit and push generated files, ideally verifying in your CI that your sbt-blowout installations are up to date
+
+   ```shell
+   sbt blowoutCheck
+   ```
