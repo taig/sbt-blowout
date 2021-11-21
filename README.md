@@ -23,7 +23,7 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
    )
    ```
 
-2. Install generators in sbt
+2. Install generators via sbt
 
    ```shell
    sbt blowoutGenerate
@@ -34,6 +34,21 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
    ```shell
    sbt blowoutCheck
    ```
+   
+## Guide
+
+sbt-blowout allows generating arbitrary file formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml`) only provide helpers to generate specific file formats.
+
+### YAML
+
+The YAML module uses [circe-yaml](https://github.com/circe/circe-yaml) in order to use the convenient circe JSON builders before converting the AST to YAML.
+
+```scala
+blowoutGenerators += BlowoutYamlGenerator.strict(
+   file("my-config.yml"),
+   content = Json.obj("version" := scalaVersion.value)
+)
+```
 
 ## Acknowledgements
 
