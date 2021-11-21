@@ -4,7 +4,7 @@ import sbt.plugins.JvmPlugin
 import sbt.{AutoPlugin, PluginTrigger, Plugins}
 
 object YamlBlowoutPlugin extends AutoPlugin {
-  object autoImport extends BlowoutKeys {
+  object autoImport {
     val YamlBlowoutGenerator = io.taig.blowout.YamlBlowoutGenerator
   }
 
