@@ -1,10 +1,12 @@
 package io.taig.blowout
 
-import io.circe.Json
+import io.circe.{Json, Printer}
 import sbt.File
 
 object BlowoutJsonGenerator {
-  def apply(target: File, content: () => Json): BlowoutGenerator = BlowoutGenerator(target, () => content().spaces2)
+  def apply(target: File, content: () => Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
+    BlowoutGenerator(target, () => printer.print(content()))
 
-  def strict(target: File, content: Json): BlowoutGenerator = BlowoutJsonGenerator(target, () => content)
+  def strict(target: File, content: Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
+    BlowoutJsonGenerator(target, () => content, printer)
 }
