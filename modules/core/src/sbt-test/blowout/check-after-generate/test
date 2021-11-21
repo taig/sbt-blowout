@@ -1,0 +1,3 @@
+> blowoutGenerate
+$ exists foobar.yml
+> blowoutCheck

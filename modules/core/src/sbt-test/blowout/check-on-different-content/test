@@ -1,0 +1,4 @@
+> blowoutGenerate
+$ exists foobar.yml
+> alterGeneratedFile
+-> blowoutCheck
