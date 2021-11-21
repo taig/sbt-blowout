@@ -5,8 +5,8 @@ val Version = new {
 
 ThisBuild / developers := List(Developer("taig", "Niklas Klein", "mail@taig.io", url("https://taig.io/")))
 ThisBuild / dynverVTagPrefix := false
-ThisBuild / homepage := Some(url("https://github.com/taig/scala-linguist/"))
-ThisBuild / licenses := List("MIT" -> url("https://raw.githubusercontent.com/taig/scala-linguist/main/LICENSE"))
+ThisBuild / homepage := Some(url("https://github.com/taig/sbt-blowout/"))
+ThisBuild / licenses := List("MIT" -> url("https://raw.githubusercontent.com/taig/sbt-blowout/main/LICENSE"))
 ThisBuild / scalaVersion := Version.Scala
 ThisBuild / versionScheme := Some("early-semver")
 
