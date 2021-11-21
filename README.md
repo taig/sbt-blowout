@@ -34,3 +34,7 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
    ```shell
    sbt blowoutCheck
    ```
+
+## Acknowledgements
+
+This plugin is highly inspired by [sbt-github-actions](https://github.com/djspiewak/sbt-github-actions) which provides a very similar workflow, but is limited to generating GitHub Actions workflow configuration files.
