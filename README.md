@@ -38,7 +38,7 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
    
 ## Guide
 
-sbt-blowout allows generating arbitrary file formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml`) provide additional helpers on top of that to ease generation of specific file formats.
+sbt-blowout generates configuration files of arbitrary formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml`) provide additional helpers on top of that to ease generation of specific file formats. sbt-blowout can be useful to generate CI configurations (such as GitHub Action workflows), Dockerfiles, cloud deployment configurations or any other configuration file that can benefit from access to the sbt build configuration.
 
 ### YAML
 
