@@ -5,9 +5,11 @@ import io.circe.yaml.Printer
 import sbt.File
 
 object BlowoutYamlGenerator {
-  def apply(target: File, content: () => Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
+  val DefaultPrinter: Printer = Printer.spaces2.copy(preserveOrder = true)
+
+  def apply(target: File, content: () => Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
     BlowoutGenerator(target, () => printer.pretty(content()))
 
-  def strict(target: File, content: Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
+  def strict(target: File, content: Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
     BlowoutYamlGenerator(target, () => content, printer)
 }
