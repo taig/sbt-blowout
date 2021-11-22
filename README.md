@@ -1,7 +1,7 @@
 # sbt blowout
 
 [![CI & CD](https://github.com/taig/sbt-blowout/actions/workflows/main.yml/badge.svg)](https://github.com/taig/sbt-blowout/actions/workflows/main.yml)
-[![sbt-blowout Scala version support](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core/latest-by-scala-version.svg)](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core)
+[![sbt-blowout-core Scala version support](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core/latest-by-scala-version.svg?targetType=Sbt)](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core)
 
 > sbt plugin to generate configuration files at build time
 
@@ -38,15 +38,26 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
    
 ## Guide
 
-sbt-blowout allows generating arbitrary file formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml`) only provide helpers to generate specific file formats.
+sbt-blowout allows generating arbitrary file formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml`) provide additional helpers on top of that to ease generation of specific file formats.
 
 ### YAML
 
-The YAML module uses [circe-yaml](https://github.com/circe/circe-yaml) in order to use the convenient circe JSON builders before converting the AST to YAML.
+The YAML module uses [circe-yaml](https://github.com/circe/circe-yaml) in order to provide the convenient circe JSON builders before converting the AST to YAML.
 
 ```scala
 blowoutGenerators += BlowoutYamlGenerator.strict(
    file("my-config.yml"),
+   content = Json.obj("version" := scalaVersion.value)
+)
+```
+
+### JSON
+
+The JSON module uses [circe](https://github.com/circe/circe) in order to provide the convenient circe JSON builders.
+
+```scala
+blowoutGenerators += BlowoutJsonGenerator.strict(
+   file("my-config.json"),
    content = Json.obj("version" := scalaVersion.value)
 )
 ```
