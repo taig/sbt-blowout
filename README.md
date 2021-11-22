@@ -9,7 +9,7 @@
 
 ```scala
 addSbtPlugin("io.taig" % "sbt-blowout-core" % "[version]")
-addSbtPlugin("io.taig" % "sbt-blowout-circe" % "[version]")
+addSbtPlugin("io.taig" % "sbt-blowout-json" % "[version]")
 addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "[version]")
 ```
 
