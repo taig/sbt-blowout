@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.5
+
+_2021-09-22_
+
+ * Preserve object order in yaml printer
+
 ## 0.0.4
 
 _2021-09-22_
