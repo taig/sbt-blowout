@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.4
+
+_2021-09-22_
+
+ * Fix comment header not being prepended to file
+ * Allow passing a custom printer to json and yaml generators
+ * Bootstrap github actions generation
+
 ## 0.0.3
 
 _2021-09-21_
