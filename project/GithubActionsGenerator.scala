@@ -2,16 +2,10 @@ import io.circe.Json
 import io.circe.syntax._
 
 object GithubActionsGenerator {
-  object Action {
-    val Checkout = "actions/checkout@v2.4.0"
-    val CoursierCache = "coursier/cache-action@v6.3"
-    val SetupJava = "actions/setup-java@v2.3.1"
-  }
-
   object Step {
     val SetupJava: Json = Json.obj(
       "name" := "Setup Java JDK",
-      "uses" := Action.SetupJava,
+      "uses" := "actions/setup-java@v2.3.1",
       "with" := Json.obj(
         "distribution" := "temurin",
         "java-version" := "11"
@@ -20,12 +14,12 @@ object GithubActionsGenerator {
 
     val Checkout: Json = Json.obj(
       "name" := "Checkout",
-      "uses" := Action.Checkout
+      "uses" := "actions/checkout@v2.4.0"
     )
 
     val Cache: Json = Json.obj(
       "name" := "Cache",
-      "uses" := Action.CoursierCache
+      "uses" := "coursier/cache-action@v6.3"
     )
   }
 
