@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0
+
+_2021-12-14_
+
+ * Change BlowoutPlugin trigger to noTrigger enforcing to explicitly enable the plugin
+ * Rename json and yaml modules to json-circe and yaml-circe
+ * Upgrade to sbt-blowout-yaml 0.0.6
+ * Upgrade to sbt-houserules 0.3.16
+ * Upgrade to sbt 1.5.6
+
 ## 0.0.6
 
 _2021-11-25_
