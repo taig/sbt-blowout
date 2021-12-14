@@ -1,6 +1,5 @@
 package io.taig.blowout
 
-import sbt.plugins.JvmPlugin
 import sbt.{AutoPlugin, PluginTrigger, Plugins}
 
 object BlowoutJsonPlugin extends AutoPlugin {
@@ -8,7 +7,7 @@ object BlowoutJsonPlugin extends AutoPlugin {
     val BlowoutJsonGenerator = io.taig.blowout.BlowoutJsonGenerator
   }
 
-  override def requires: Plugins = JvmPlugin
+  override def requires: Plugins = BlowoutPlugin
 
-  override def trigger: PluginTrigger = allRequirements
+  override def trigger: PluginTrigger = noTrigger
 }

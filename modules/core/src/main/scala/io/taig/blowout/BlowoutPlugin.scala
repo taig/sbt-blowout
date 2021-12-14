@@ -17,7 +17,7 @@ object BlowoutPlugin extends AutoPlugin {
 
   override def requires: Plugins = JvmPlugin
 
-  override def trigger: PluginTrigger = allRequirements
+  override def trigger: PluginTrigger = noTrigger
 
   override def projectSettings: Seq[Def.Setting[_]] = Def.settings(
     blowoutGenerators := Nil,
