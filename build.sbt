@@ -30,22 +30,22 @@ lazy val core = project
     }
   )
 
-lazy val json = project
-  .in(file("modules/json"))
+lazy val jsonCirce = project
+  .in(file("modules/json-circe"))
   .enablePlugins(SbtPlugin)
   .settings(
-    name := "sbt-blowout-json",
+    name := "sbt-blowout-json-circe",
     libraryDependencies ++=
       "io.circe" %% "circe-core" % Version.Circe ::
         Nil
   )
   .dependsOn(core)
 
-lazy val yaml = project
-  .in(file("modules/yaml"))
+lazy val yamlCirce = project
+  .in(file("modules/yaml-circe"))
   .enablePlugins(SbtPlugin)
   .settings(
-    name := "sbt-blowout-yaml",
+    name := "sbt-blowout-yaml-circe",
     libraryDependencies ++=
       "io.circe" %% "circe-yaml" % Version.CirceYaml ::
         Nil
