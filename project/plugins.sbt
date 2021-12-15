@@ -1,4 +1,4 @@
-addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.5.9")
+addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.5.10")
 
 addSbtPlugin("io.taig" % "sbt-blowout-yaml" % "0.0.6")
 
