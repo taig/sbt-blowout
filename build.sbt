@@ -11,6 +11,8 @@ ThisBuild / licenses := List("MIT" -> url("https://raw.githubusercontent.com/tai
 ThisBuild / scalaVersion := Version.Scala
 ThisBuild / versionScheme := Some("early-semver")
 
+enablePlugins(BlowoutYamlPlugin)
+
 noPublishSettings
 
 blowoutGenerators ++= {
