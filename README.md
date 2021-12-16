@@ -19,6 +19,8 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml-circe" % "[version]")
 1. Register generators
 
    ```scala
+   enablePlugins(BlowoutPlugin)
+   
    blowoutGenerators += BlowoutGenerator.strict(
      file("my-config.yml"),
      content = s"""version: ${scalaVersion.value}""".stripMargin
@@ -31,7 +33,7 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml-circe" % "[version]")
    sbt blowoutGenerate
    ```
 
-3. Commit and push generated files, ideally verifying in your CI that your sbt-blowout installations are up to date
+3. Verifying that your sbt-blowout installations are up to date, ideally as part of your CI pipeline
 
    ```shell
    sbt blowoutCheck
@@ -39,7 +41,7 @@ addSbtPlugin("io.taig" % "sbt-blowout-yaml-circe" % "[version]")
    
 ## Guide
 
-sbt-blowout generates configuration files of arbitrary formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml`) provide additional helpers on top of that to ease generation of specific file formats. sbt-blowout can be useful to generate CI configurations (such as GitHub Action workflows), Dockerfiles, cloud deployment configurations or any other configuration file that can benefit from access to the sbt build configuration.
+sbt-blowout generates configuration files of arbitrary formats and extensions with the `sbt-blowout-core` module. Other modules (like `sbt-blowout-yaml-circe`) provide additional helpers on top of that to ease generation of specific file formats. sbt-blowout can be useful to generate CI configurations (such as GitHub Action workflows), Dockerfiles, cloud deployment configurations or any other configuration file that can benefit from access to the sbt build configuration.
 
 ### YAML
 
