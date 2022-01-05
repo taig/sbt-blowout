@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.1.1
+
+_2022-01-05_
+
+ * Add BlowoutGenerator.lzy builders
+ * Don't publish root module
+ * Add scala steward badge
+ * Update sbt to 1.6.1 (#8)
+ * Update sbt-ci-release to 1.5.10 (#3)
+ * Update sbt-houserules to 0.3.18 (#9)
+
 ## 0.1.0
 
 _2021-12-14_
