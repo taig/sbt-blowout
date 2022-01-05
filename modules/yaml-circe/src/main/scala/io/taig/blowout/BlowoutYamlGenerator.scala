@@ -10,6 +10,9 @@ object BlowoutYamlGenerator {
   def apply(target: File, content: () => Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
     BlowoutGenerator(target, () => printer.pretty(content()))
 
+  def lzy(target: File, content: => Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
+    BlowoutGenerator(target, () => printer.pretty(content))
+
   def strict(target: File, content: Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
     BlowoutYamlGenerator(target, () => content, printer)
 }
