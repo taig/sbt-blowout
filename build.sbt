@@ -17,8 +17,8 @@ noPublishSettings
 
 blowoutGenerators ++= {
   val workflows = file(".github") / "workflows"
-  BlowoutYamlGenerator.lzy(workflows / "main.yml", GithubActionsGenerator.main) ::
-    BlowoutYamlGenerator.lzy(workflows / "branches.yml", GithubActionsGenerator.branches) ::
+  BlowoutYamlGenerator.lzy(workflows / "main.yml", GitHubActionsGenerator.main) ::
+    BlowoutYamlGenerator.lzy(workflows / "branches.yml", GitHubActionsGenerator.branches) ::
     Nil
 }
 

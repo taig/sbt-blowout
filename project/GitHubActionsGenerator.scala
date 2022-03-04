@@ -1,7 +1,7 @@
 import io.circe.Json
 import io.circe.syntax._
 
-object GithubActionsGenerator {
+object GitHubActionsGenerator {
   object Step {
     val SetupJava: Json = Json.obj(
       "name" := "Setup Java JDK",
