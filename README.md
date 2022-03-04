@@ -67,7 +67,7 @@ blowoutGenerators += BlowoutJsonGenerator.strict(
 
 ## Example
 
-Take a look at the [GithubActionsGenerator](/project/GitHubActionsGenerator.scala) file which is used to generate the GitHub Action workflows that build and deploy this project. The generators are registered at the root project in the [build.sbt](/build.sbt#L18-L23) and the generated files can be found in the [.github/workflows/](/.github/workflows/) folder.
+Take a look at the [GitHubActionsGenerator](/project/GitHubActionsGenerator.scala) file which is used to generate the GitHub Action workflows that build and deploy this project. The generators are registered at the root project in the [build.sbt](/build.sbt#L18-L23) and the generated files can be found in the [.github/workflows/](/.github/workflows/) folder.
 
 ## Acknowledgements
 
