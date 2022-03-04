@@ -9,7 +9,7 @@ name: CI & CD
     - '*.*.*'
 jobs:
   lint:
-    name: ⚠️ Fatal warnings and code formatting
+    name: Fatal warnings and code formatting
     runs-on: ubuntu-latest
     steps:
     - name: Setup Java JDK
@@ -22,13 +22,13 @@ jobs:
     - name: Cache
       uses: coursier/cache-action@v6.3
     - name: Workflows
-      run: sbt blowoutCheck
+      run: sbt -Dmode=strict blowoutCheck
     - name: Code formatting
-      run: sbt scalafmtCheckAll
+      run: sbt -Dmode=strict scalafmtCheckAll
     - name: Fatal warnings
       run: sbt -Dmode=strict compile
   test:
-    name: ✅ Unit & integration tests
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
     - name: Setup Java JDK

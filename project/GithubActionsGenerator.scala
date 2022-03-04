@@ -25,7 +25,7 @@ object GithubActionsGenerator {
 
   object Job {
     val Lint: Json = Json.obj(
-      "name" := "⚠️ Fatal warnings and code formatting",
+      "name" := "Fatal warnings and code formatting",
       "runs-on" := "ubuntu-latest",
       "steps" := List(
         Step.SetupJava,
@@ -33,11 +33,11 @@ object GithubActionsGenerator {
         Step.Cache,
         Json.obj(
           "name" := "Workflows",
-          "run" := "sbt blowoutCheck"
+          "run" := "sbt -Dmode=strict blowoutCheck"
         ),
         Json.obj(
           "name" := "Code formatting",
-          "run" := "sbt scalafmtCheckAll"
+          "run" := "sbt -Dmode=strict scalafmtCheckAll"
         ),
         Json.obj(
           "name" := "Fatal warnings",
@@ -47,7 +47,7 @@ object GithubActionsGenerator {
     )
 
     val Test: Json = Json.obj(
-      "name" := "✅ Unit & integration tests",
+      "name" := "Unit tests",
       "runs-on" := "ubuntu-latest",
       "steps" := List(
         Step.SetupJava,
@@ -99,7 +99,7 @@ object GithubActionsGenerator {
     "name" := "CI",
     "on" := Json.obj(
       "pull_request" := Json.obj(
-        "branches" := List("main".asJson)
+        "branches" := List("main")
       )
     ),
     "jobs" := Json.obj(
