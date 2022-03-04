@@ -73,7 +73,7 @@ object GitHubActionsGenerator {
       "lint" := Job.Lint,
       "test" := Job.Test,
       "deploy" := Json.obj(
-        "name" := "🚀 Deploy",
+        "name" := "Deploy",
         "runs-on" := "ubuntu-latest",
         "needs" := List("test", "lint"),
         "steps" := List(

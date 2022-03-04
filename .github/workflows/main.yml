@@ -43,7 +43,7 @@ jobs:
     - name: Tests
       run: sbt scripted
   deploy:
-    name: 🚀 Deploy
+    name: Deploy
     runs-on: ubuntu-latest
     needs:
     - test
