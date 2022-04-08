@@ -11,7 +11,8 @@ trait BlowoutKeys {
     "Generators that describe where files should be installed to by blowoutGenerate and what content they should have"
   )
 
-  lazy val blowoutRender = settingKey[BlowoutGenerator => String]("Create the final file content for the given generator")
+  lazy val blowoutRender =
+    settingKey[BlowoutGenerator => String]("Create the final file content for the given generator")
 
   lazy val blowoutGenerate = taskKey[List[File]]("Install the generator definitions from blowoutGenerators")
 
