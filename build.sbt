@@ -1,6 +1,6 @@
 val Version = new {
-  val Circe = "0.14.1"
-  val CirceYaml = "0.14.1"
+  val Circe = "0.14.2"
+  val CirceYaml = "0.14.2"
   val Scala = "2.12.15"
 }
 
