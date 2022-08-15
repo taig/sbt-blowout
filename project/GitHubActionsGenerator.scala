@@ -33,15 +33,15 @@ object GitHubActionsGenerator {
         Step.Cache,
         Json.obj(
           "name" := "Workflows",
-          "run" := "sbt -Dmode=strict blowoutCheck"
+          "run" := "sbt -Dmode=ci blowoutCheck"
         ),
         Json.obj(
           "name" := "Code formatting",
-          "run" := "sbt -Dmode=strict scalafmtCheckAll"
+          "run" := "sbt -Dmode=ci scalafmtCheckAll"
         ),
         Json.obj(
           "name" := "Fatal warnings",
-          "run" := "sbt -Dmode=strict compile"
+          "run" := "sbt -Dmode=ci compile"
         )
       )
     )

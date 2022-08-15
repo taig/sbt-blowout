@@ -22,11 +22,11 @@ jobs:
     - name: Cache
       uses: coursier/cache-action@v6.3
     - name: Workflows
-      run: sbt -Dmode=strict blowoutCheck
+      run: sbt -Dmode=ci blowoutCheck
     - name: Code formatting
-      run: sbt -Dmode=strict scalafmtCheckAll
+      run: sbt -Dmode=ci scalafmtCheckAll
     - name: Fatal warnings
-      run: sbt -Dmode=strict compile
+      run: sbt -Dmode=ci compile
   test:
     name: Unit tests
     runs-on: ubuntu-latest
