@@ -22,6 +22,8 @@ blowoutGenerators ++= {
     Nil
 }
 
+name := "sbt-blowout"
+
 lazy val core = project
   .in(file("modules/core"))
   .enablePlugins(SbtPlugin)
