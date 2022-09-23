@@ -3,12 +3,12 @@ import io.circe.syntax._
 
 object GitHubActionsGenerator {
   object Step {
-    val SetupJava: Json = Json.obj(
+    def setupJava(version: String): Json = Json.obj(
       "name" := "Setup Java JDK",
       "uses" := "actions/setup-java@v2.3.1",
       "with" := Json.obj(
         "distribution" := "temurin",
-        "java-version" := "11"
+        "java-version" := version
       )
     )
 
@@ -24,11 +24,11 @@ object GitHubActionsGenerator {
   }
 
   object Job {
-    val Lint: Json = Json.obj(
+    def lint(javaVersion: String): Json = Json.obj(
       "name" := "Fatal warnings and code formatting",
       "runs-on" := "ubuntu-latest",
       "steps" := List(
-        Step.SetupJava,
+        Step.setupJava(javaVersion),
         Step.Checkout,
         Step.Cache,
         Json.obj(
@@ -46,11 +46,11 @@ object GitHubActionsGenerator {
       )
     )
 
-    val Test: Json = Json.obj(
+    def test(javaVersion: String): Json = Json.obj(
       "name" := "Unit tests",
       "runs-on" := "ubuntu-latest",
       "steps" := List(
-        Step.SetupJava,
+        Step.setupJava(javaVersion),
         Step.Checkout,
         Step.Cache,
         Json.obj(
@@ -61,7 +61,7 @@ object GitHubActionsGenerator {
     )
   }
 
-  val main: Json = Json.obj(
+  def main(javaVersion: String): Json = Json.obj(
     "name" := "CI & CD",
     "on" := Json.obj(
       "push" := Json.obj(
@@ -70,14 +70,14 @@ object GitHubActionsGenerator {
       )
     ),
     "jobs" := Json.obj(
-      "lint" := Job.Lint,
-      "test" := Job.Test,
+      "lint" := Job.lint(javaVersion),
+      "test" := Job.test(javaVersion),
       "deploy" := Json.obj(
         "name" := "Deploy",
         "runs-on" := "ubuntu-latest",
         "needs" := List("test", "lint"),
         "steps" := List(
-          Step.SetupJava,
+          Step.setupJava(javaVersion),
           Step.Checkout,
           Step.Cache,
           Json.obj(
@@ -95,7 +95,7 @@ object GitHubActionsGenerator {
     )
   )
 
-  val branches: Json = Json.obj(
+  def branches(javaVersion: String): Json = Json.obj(
     "name" := "CI",
     "on" := Json.obj(
       "pull_request" := Json.obj(
@@ -103,8 +103,8 @@ object GitHubActionsGenerator {
       )
     ),
     "jobs" := Json.obj(
-      "lint" := Job.Lint,
-      "test" := Job.Test
+      "lint" := Job.lint(javaVersion),
+      "test" := Job.test(javaVersion)
     )
   )
 }

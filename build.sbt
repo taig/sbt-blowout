@@ -1,6 +1,7 @@
 val Version = new {
   val Circe = "0.14.3"
   val CirceYaml = "0.14.1"
+  val Java = "17"
   val Scala = "2.12.17"
 }
 
@@ -17,8 +18,8 @@ enablePlugins(BlowoutYamlPlugin)
 
 blowoutGenerators ++= {
   val workflows = file(".github") / "workflows"
-  BlowoutYamlGenerator.lzy(workflows / "main.yml", GitHubActionsGenerator.main) ::
-    BlowoutYamlGenerator.lzy(workflows / "branches.yml", GitHubActionsGenerator.branches) ::
+  BlowoutYamlGenerator.lzy(workflows / "main.yml", GitHubActionsGenerator.main(Version.Java)) ::
+    BlowoutYamlGenerator.lzy(workflows / "branches.yml", GitHubActionsGenerator.branches(Version.Java)) ::
     Nil
 }
 
