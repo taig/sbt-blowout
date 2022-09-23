@@ -9,8 +9,13 @@
 ## Installation
 
 ```scala
+// To generate files from plain strings
 addSbtPlugin("io.taig" % "sbt-blowout-core" % "[version]")
+
+// To generate json files via circe
 addSbtPlugin("io.taig" % "sbt-blowout-json-circe" % "[version]")
+
+// To generate yaml files via circe-yaml
 addSbtPlugin("io.taig" % "sbt-blowout-yaml-circe" % "[version]")
 ```
 
@@ -52,6 +57,8 @@ sbt-blowout generates configuration files of arbitrary formats and extensions wi
 The YAML module uses [circe-yaml](https://github.com/circe/circe-yaml) in order to provide the convenient circe JSON builders before converting the AST to YAML.
 
 ```scala
+enablePlugins(BlowoutYamlPlugin)
+
 blowoutGenerators += BlowoutYamlGenerator.strict(
    file("my-config.yml"),
    content = Json.obj("version" := scalaVersion.value)
@@ -63,6 +70,8 @@ blowoutGenerators += BlowoutYamlGenerator.strict(
 The JSON module uses [circe](https://github.com/circe/circe) in order to provide the convenient circe JSON builders.
 
 ```scala
+enablePlugins(BlowoutJsonPlugin)
+
 blowoutGenerators += BlowoutJsonGenerator.strict(
    file("my-config.json"),
    content = Json.obj("version" := scalaVersion.value)
