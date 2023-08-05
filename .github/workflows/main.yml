@@ -12,14 +12,14 @@ jobs:
     name: Fatal warnings and code formatting
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Setup Java JDK
       uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: '17'
         cache: sbt
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Workflows
       run: sbt -Dmode=ci blowoutCheck
     - name: Code formatting
@@ -30,14 +30,14 @@ jobs:
     name: Unit tests
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Setup Java JDK
       uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: '17'
         cache: sbt
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Tests
       run: sbt scripted
   deploy:
@@ -47,14 +47,14 @@ jobs:
     - test
     - lint
     steps:
+    - name: Checkout
+      uses: actions/checkout@v3
     - name: Setup Java JDK
       uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: '17'
         cache: sbt
-    - name: Checkout
-      uses: actions/checkout@v3
     - name: Release
       run: sbt ci-release
       env:

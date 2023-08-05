@@ -24,8 +24,8 @@ object GitHubActionsGenerator {
       "name" := "Fatal warnings and code formatting",
       "runs-on" := "ubuntu-latest",
       "steps" := List(
-        Step.setupJava(javaVersion),
         Step.Checkout,
+        Step.setupJava(javaVersion),
         Json.obj(
           "name" := "Workflows",
           "run" := "sbt -Dmode=ci blowoutCheck"
@@ -45,8 +45,8 @@ object GitHubActionsGenerator {
       "name" := "Unit tests",
       "runs-on" := "ubuntu-latest",
       "steps" := List(
-        Step.setupJava(javaVersion),
         Step.Checkout,
+        Step.setupJava(javaVersion),
         Json.obj(
           "name" := "Tests",
           "run" := "sbt scripted"
@@ -71,8 +71,8 @@ object GitHubActionsGenerator {
         "runs-on" := "ubuntu-latest",
         "needs" := List("test", "lint"),
         "steps" := List(
-          Step.setupJava(javaVersion),
           Step.Checkout,
+          Step.setupJava(javaVersion),
           Json.obj(
             "name" := "Release",
             "run" := "sbt ci-release",
