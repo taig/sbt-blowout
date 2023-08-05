@@ -13,14 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup Java JDK
-      uses: actions/setup-java@v2.3.1
+      uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: '17'
+        cache: sbt
     - name: Checkout
-      uses: actions/checkout@v2.4.0
-    - name: Cache
-      uses: coursier/cache-action@v6.3
+      uses: actions/checkout@v3
     - name: Workflows
       run: sbt -Dmode=ci blowoutCheck
     - name: Code formatting
@@ -32,14 +31,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup Java JDK
-      uses: actions/setup-java@v2.3.1
+      uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: '17'
+        cache: sbt
     - name: Checkout
-      uses: actions/checkout@v2.4.0
-    - name: Cache
-      uses: coursier/cache-action@v6.3
+      uses: actions/checkout@v3
     - name: Tests
       run: sbt scripted
   deploy:
@@ -50,14 +48,13 @@ jobs:
     - lint
     steps:
     - name: Setup Java JDK
-      uses: actions/setup-java@v2.3.1
+      uses: actions/setup-java@v3
       with:
         distribution: temurin
         java-version: '17'
+        cache: sbt
     - name: Checkout
-      uses: actions/checkout@v2.4.0
-    - name: Cache
-      uses: coursier/cache-action@v6.3
+      uses: actions/checkout@v3
     - name: Release
       run: sbt ci-release
       env:

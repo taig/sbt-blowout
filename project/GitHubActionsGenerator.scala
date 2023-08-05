@@ -5,21 +5,17 @@ object GitHubActionsGenerator {
   object Step {
     def setupJava(version: String): Json = Json.obj(
       "name" := "Setup Java JDK",
-      "uses" := "actions/setup-java@v2.3.1",
+      "uses" := "actions/setup-java@v3",
       "with" := Json.obj(
         "distribution" := "temurin",
-        "java-version" := version
+        "java-version" := version,
+        "cache" := "sbt"
       )
     )
 
     val Checkout: Json = Json.obj(
       "name" := "Checkout",
-      "uses" := "actions/checkout@v2.4.0"
-    )
-
-    val Cache: Json = Json.obj(
-      "name" := "Cache",
-      "uses" := "coursier/cache-action@v6.3"
+      "uses" := "actions/checkout@v3"
     )
   }
 
@@ -30,7 +26,6 @@ object GitHubActionsGenerator {
       "steps" := List(
         Step.setupJava(javaVersion),
         Step.Checkout,
-        Step.Cache,
         Json.obj(
           "name" := "Workflows",
           "run" := "sbt -Dmode=ci blowoutCheck"
@@ -52,7 +47,6 @@ object GitHubActionsGenerator {
       "steps" := List(
         Step.setupJava(javaVersion),
         Step.Checkout,
-        Step.Cache,
         Json.obj(
           "name" := "Tests",
           "run" := "sbt scripted"
@@ -79,7 +73,6 @@ object GitHubActionsGenerator {
         "steps" := List(
           Step.setupJava(javaVersion),
           Step.Checkout,
-          Step.Cache,
           Json.obj(
             "name" := "Release",
             "run" := "sbt ci-release",
