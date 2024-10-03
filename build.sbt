@@ -19,7 +19,8 @@ enablePlugins(BlowoutYamlPlugin)
 blowoutGenerators ++= {
   val workflows = file(".github") / "workflows"
   BlowoutYamlGenerator.lzy(workflows / "main.yml", GitHubActionsGenerator.main(Version.Java)) ::
-    BlowoutYamlGenerator.lzy(workflows / "branches.yml", GitHubActionsGenerator.branches(Version.Java)) ::
+    BlowoutYamlGenerator.lzy(workflows / "pull-request.yml", GitHubActionsGenerator.pullRequest(Version.Java)) ::
+    BlowoutYamlGenerator.lzy(workflows / "taig.yml", GitHubActionsGenerator.tag(Version.Java)) ::
     Nil
 }
 
