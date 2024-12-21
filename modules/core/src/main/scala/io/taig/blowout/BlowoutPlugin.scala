@@ -3,7 +3,7 @@ package io.taig.blowout
 import sbt.Keys.state
 import sbt.io.IO
 import sbt.plugins.JvmPlugin
-import sbt.{io as _, *}
+import sbt.{io => _, _}
 
 import java.io.FileNotFoundException
 

@@ -1,6 +1,6 @@
 package io.taig.blowout
 
-import sbt.*
+import sbt._
 
 trait BlowoutKeys {
   lazy val blowoutHeader = settingKey[File => Option[String]](

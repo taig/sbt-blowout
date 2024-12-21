@@ -9,6 +9,7 @@ ThisBuild / developers := List(Developer("taig", "Niklas Klein", "mail@taig.io",
 ThisBuild / dynverVTagPrefix := false
 ThisBuild / homepage := Some(url("https://github.com/taig/sbt-blowout/"))
 ThisBuild / licenses := List("MIT" -> url("https://raw.githubusercontent.com/taig/sbt-blowout/main/LICENSE"))
+ThisBuild / scalafixConfiguration += "OrganizeImports.targetDialect" -> "Scala2"
 ThisBuild / scalaVersion := Version.Scala
 ThisBuild / versionScheme := Some("early-semver")
 
