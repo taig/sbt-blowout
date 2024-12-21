@@ -38,8 +38,8 @@ object GitHubActionsGenerator {
           "run" := "sbt scalafmtCheckAll"
         ),
         Json.obj(
-          "name" := "Fatal warnings",
-          "run" := "sbt compile"
+          "name" := "Linting",
+          "run" := "sbt scalafixCheckAll"
         )
       )
     )

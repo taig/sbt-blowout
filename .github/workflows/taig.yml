@@ -26,8 +26,8 @@ jobs:
       run: sbt blowoutCheck
     - name: Code formatting
       run: sbt scalafmtCheckAll
-    - name: Fatal warnings
-      run: sbt compile
+    - name: Linting
+      run: sbt scalafixCheckAll
   test:
     name: Unit tests
     runs-on: ubuntu-latest
