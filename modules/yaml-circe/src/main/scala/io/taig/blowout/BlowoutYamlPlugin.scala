@@ -1,6 +1,8 @@
 package io.taig.blowout
 
-import sbt.{AutoPlugin, PluginTrigger, Plugins}
+import sbt.AutoPlugin
+import sbt.PluginTrigger
+import sbt.Plugins
 
 object BlowoutYamlPlugin extends AutoPlugin {
   object autoImport {

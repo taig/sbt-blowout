@@ -1,6 +1,7 @@
 package io.taig.blowout
 
-import io.circe.{Json, Printer}
+import io.circe.Json
+import io.circe.Printer
 import sbt.File
 
 object BlowoutJsonGenerator {
