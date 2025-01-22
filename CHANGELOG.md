@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+_2025-01-22_
+
+- Move comment handling into generator
+- Fix missing sbt in CI
+- Upgrade to sbt-houserules 0.11.3
+- Update sbt, scripted-plugin to 1.10.7 (#78)
+- Update sbt-blowout-yaml-circe to 0.1.2 (#76)
+
 ## 0.1.2
 
 _2024-12-21_
