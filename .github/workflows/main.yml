@@ -16,12 +16,14 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: Setup Java JDK
+    - name: Setup Java
       uses: actions/setup-java@v4
       with:
         distribution: temurin
         java-version: '17'
         cache: sbt
+    - name: Setup sbt
+      uses: sbt/setup-sbt@v1
     - name: Workflows
       run: sbt blowoutCheck
     - name: Code formatting
@@ -36,12 +38,14 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: Setup Java JDK
+    - name: Setup Java
       uses: actions/setup-java@v4
       with:
         distribution: temurin
         java-version: '17'
         cache: sbt
+    - name: Setup sbt
+      uses: sbt/setup-sbt@v1
     - name: Tests
       run: sbt scripted
   deploy:
@@ -55,12 +59,14 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    - name: Setup Java JDK
+    - name: Setup Java
       uses: actions/setup-java@v4
       with:
         distribution: temurin
         java-version: '17'
         cache: sbt
+    - name: Setup sbt
+      uses: sbt/setup-sbt@v1
     - name: Release
       run: sbt ci-release
       env:

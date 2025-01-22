@@ -4,13 +4,18 @@ import io.circe.syntax._
 object GitHubActionsGenerator {
   object Step {
     def setupJava(version: String): Json = Json.obj(
-      "name" := "Setup Java JDK",
+      "name" := "Setup Java",
       "uses" := "actions/setup-java@v4",
       "with" := Json.obj(
         "distribution" := "temurin",
         "java-version" := version,
         "cache" := "sbt"
       )
+    )
+
+    val setupSbt: Json = Json.obj(
+      "name" := "Setup sbt",
+      "uses" := "sbt/setup-sbt@v1"
     )
 
     val Checkout: Json = Json.obj(
@@ -29,6 +34,7 @@ object GitHubActionsGenerator {
       "steps" := List(
         Step.Checkout,
         Step.setupJava(javaVersion),
+        Step.setupSbt,
         Json.obj(
           "name" := "Workflows",
           "run" := "sbt blowoutCheck"
@@ -50,6 +56,7 @@ object GitHubActionsGenerator {
       "steps" := List(
         Step.Checkout,
         Step.setupJava(javaVersion),
+        Step.setupSbt,
         Json.obj(
           "name" := "Tests",
           "run" := "sbt scripted"
@@ -64,6 +71,7 @@ object GitHubActionsGenerator {
       "steps" := List(
         Step.Checkout,
         Step.setupJava(javaVersion),
+        Step.setupSbt,
         Json.obj(
           "name" := "Release",
           "run" := "sbt ci-release",
