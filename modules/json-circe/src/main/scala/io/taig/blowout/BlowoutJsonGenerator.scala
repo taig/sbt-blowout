@@ -6,11 +6,11 @@ import sbt.File
 
 object BlowoutJsonGenerator {
   def apply(target: File, content: () => Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
-    BlowoutGenerator(target, () => printer.print(content()))
+    BlowoutGenerator(target, () => printer.print(content()), comment = BlowoutComment.Disabled)
 
   def lzy(target: File, content: => Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
-    BlowoutGenerator(target, () => printer.print(content))
+    BlowoutGenerator(target, () => printer.print(content), comment = BlowoutComment.Disabled)
 
   def strict(target: File, content: Json, printer: Printer = Printer.spaces2): BlowoutGenerator =
-    BlowoutJsonGenerator(target, () => content, printer)
+    BlowoutGenerator.strict(target, printer.print(content), comment = BlowoutComment.Disabled)
 }

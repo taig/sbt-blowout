@@ -7,12 +7,24 @@ import sbt.File
 object BlowoutYamlGenerator {
   val DefaultPrinter: Printer = Printer.spaces2.copy(preserveOrder = true, splitLines = false)
 
-  def apply(target: File, content: () => Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
-    BlowoutGenerator(target, () => printer.pretty(content()))
+  def apply(
+      target: File,
+      content: () => Json,
+      printer: Printer = DefaultPrinter,
+      comment: BlowoutComment = BlowoutComment.Hash
+  ): BlowoutGenerator = BlowoutGenerator(target, () => printer.pretty(content()), comment)
 
-  def lzy(target: File, content: => Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
-    BlowoutGenerator(target, () => printer.pretty(content))
+  def lzy(
+      target: File,
+      content: => Json,
+      printer: Printer = DefaultPrinter,
+      comment: BlowoutComment = BlowoutComment.Hash
+  ): BlowoutGenerator = BlowoutGenerator(target, () => printer.pretty(content), comment)
 
-  def strict(target: File, content: Json, printer: Printer = DefaultPrinter): BlowoutGenerator =
-    BlowoutYamlGenerator(target, () => content, printer)
+  def strict(
+      target: File,
+      content: Json,
+      printer: Printer = DefaultPrinter,
+      comment: BlowoutComment = BlowoutComment.Hash
+  ): BlowoutGenerator = BlowoutGenerator.strict(target, printer.pretty(content), comment)
 }

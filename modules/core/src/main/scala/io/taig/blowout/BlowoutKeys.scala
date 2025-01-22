@@ -3,9 +3,7 @@ package io.taig.blowout
 import sbt._
 
 trait BlowoutKeys {
-  lazy val blowoutHeader = settingKey[File => Option[String]](
-    "Optional comment header that is added to installed files, depending on their file extension"
-  )
+  lazy val blowoutHeader = settingKey[List[String]]("Optional comment header that is added to installed files")
 
   lazy val blowoutGenerators = settingKey[List[BlowoutGenerator]](
     "Generators that describe where files should be installed to by blowoutGenerate and what content they should have"
