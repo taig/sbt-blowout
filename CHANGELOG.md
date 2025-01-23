@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+_2025-01-23_
+
+- Add git style diff to error output
+
 ## 0.2.0
 
 _2025-01-22_
