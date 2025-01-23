@@ -2,6 +2,7 @@ val Version = new {
   val Circe = "0.14.10"
   val CirceYaml = "0.15.2"
   val Java = "17"
+  val JavaDiffUtils = "4.15"
   val Scala = "2.12.20"
 }
 
@@ -31,6 +32,9 @@ lazy val core = project
   .in(file("modules/core"))
   .enablePlugins(SbtPlugin)
   .settings(
+    libraryDependencies ++=
+      "io.github.java-diff-utils" % "java-diff-utils" % Version.JavaDiffUtils ::
+        Nil,
     name := "sbt-blowout-core",
     scriptedBufferLog := false,
     scriptedLaunchOpts := {
