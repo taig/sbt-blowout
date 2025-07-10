@@ -2,7 +2,7 @@ val Version = new {
   val Circe = "0.14.14"
   val CirceYaml = "0.15.2"
   val Java = "17"
-  val JavaDiffUtils = "4.15"
+  val JavaDiffUtils = "4.16"
   val Scala = "2.12.20"
 }
 
