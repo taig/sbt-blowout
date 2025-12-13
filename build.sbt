@@ -3,7 +3,7 @@ val Version = new {
   val CirceYaml = "0.15.2"
   val Java = "17"
   val JavaDiffUtils = "4.16"
-  val Scala = "2.12.20"
+  val Scala = "2.12.21"
 }
 
 ThisBuild / developers := List(Developer("taig", "Niklas Klein", "mail@taig.io", url("https://taig.io/")))
