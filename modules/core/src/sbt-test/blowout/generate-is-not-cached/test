@@ -1,0 +1,6 @@
+> blowoutGenerate
+$ exists foobar.yml
+$ delete foobar.yml
+$ absent foobar.yml
+> blowoutGenerate
+$ exists foobar.yml

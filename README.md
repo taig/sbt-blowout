@@ -1,12 +1,14 @@
 # sbt blowout
 
 [![CI & CD](https://github.com/taig/sbt-blowout/actions/workflows/main.yml/badge.svg)](https://github.com/taig/sbt-blowout/actions/workflows/main.yml)
-[![sbt-blowout-core Scala version support](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core/latest-by-scala-version.svg?targetType=Sbt)](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core)
+[![sbt-blowout-core Scala version support](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core/latest-by-scala-version.svg?platform=sbt2.0)](https://index.scala-lang.org/taig/sbt-blowout/sbt-blowout-core)
 [![Scala Steward badge](https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=)](https://scala-steward.org)
 
 > sbt plugin for generating configuration files
 
 ## Installation
+
+sbt-blowout `0.3.0` and later require sbt 2. The `0.2.x` line remains available for sbt 1 builds.
 
 ```scala
 // To generate files from plain strings
@@ -80,7 +82,7 @@ blowoutGenerators += BlowoutJsonGenerator.strict(
 
 ## Example
 
-Take a look at the [GitHubActionsGenerator](/project/GitHubActionsGenerator.scala) file which is used to generate the GitHub Action workflows that build and deploy this project. The generators are registered at the root project in the [build.sbt](/build.sbt#L16-L23) and the generated files can be found in the [.github/workflows/](/.github/workflows/) folder.
+Take a look at the [GitHubActionsGenerator](/project/GitHubActionsGenerator.scala) file which is used to generate the GitHub Action workflows that build and deploy this project. The generators are registered at the root project in the [build.sbt](/build.sbt#L14-L20) and the generated files can be found in the [.github/workflows/](/.github/workflows/) folder.
 
 ## Acknowledgements
 

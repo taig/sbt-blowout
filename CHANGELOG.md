@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- Upgrade to sbt 2 and drop sbt 1 support; artifacts now publish with the `_sbt2_3` suffix
+- Build the plugin with Scala 3 instead of Scala 2.12
+- Mark `blowoutGenerate` and `blowoutCheck` as uncached so sbt 2 does not skip their file system effects
+- Upgrade to sbt-houserules 0.12.0 and sbt-ci-release 1.12.0
+
 ## 0.2.1
 
 _2025-01-23_
