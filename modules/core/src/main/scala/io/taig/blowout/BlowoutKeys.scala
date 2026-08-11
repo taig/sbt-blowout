@@ -1,6 +1,6 @@
 package io.taig.blowout
 
-import sbt._
+import sbt.*
 
 trait BlowoutKeys {
   lazy val blowoutHeader = settingKey[List[String]]("Optional comment header that is added to installed files")

@@ -1,11 +1,11 @@
 import io.circe.Json
-import io.circe.syntax._
+import io.circe.syntax.*
 
 object GitHubActionsGenerator {
   object Step {
     def setupJava(version: String): Json = Json.obj(
       "name" := "Setup Java",
-      "uses" := "actions/setup-java@v4",
+      "uses" := "actions/setup-java@v5",
       "with" := Json.obj(
         "distribution" := "temurin",
         "java-version" := version,
@@ -20,7 +20,7 @@ object GitHubActionsGenerator {
 
     val Checkout: Json = Json.obj(
       "name" := "Checkout",
-      "uses" := "actions/checkout@v4",
+      "uses" := "actions/checkout@v7",
       "with" := Json.obj(
         "fetch-depth" := 0
       )

@@ -1,32 +1,25 @@
-val Version = new {
-  val Circe = "0.14.16"
-  val CirceYaml = "0.15.2"
-  val Java = "17"
-  val JavaDiffUtils = "4.17"
-  val Scala = "2.12.21"
-}
-
-ThisBuild / developers := List(Developer("taig", "Niklas Klein", "mail@taig.io", url("https://taig.io/")))
+ThisBuild / developers := List(Developer("taig", "Niklas Klein", "mail@taig.io", uri("https://taig.io/")))
 ThisBuild / dynverVTagPrefix := false
-ThisBuild / homepage := Some(url("https://github.com/taig/sbt-blowout/"))
-ThisBuild / licenses := List("MIT" -> url("https://raw.githubusercontent.com/taig/sbt-blowout/main/LICENSE"))
-ThisBuild / scalafixConfiguration += "OrganizeImports.targetDialect" -> "Scala2"
+ThisBuild / homepage := Some(uri("https://github.com/taig/sbt-blowout/"))
+ThisBuild / licenses := List("MIT" -> uri("https://raw.githubusercontent.com/taig/sbt-blowout/main/LICENSE"))
 ThisBuild / scalaVersion := Version.Scala
 ThisBuild / versionScheme := Some("early-semver")
 
-noPublishSettings
-
-enablePlugins(BlowoutYamlPlugin)
-
-blowoutGenerators ++= {
-  val workflows = file(".github") / "workflows"
-  BlowoutYamlGenerator.lzy(workflows / "main.yml", GitHubActionsGenerator.main(Version.Java)) ::
-    BlowoutYamlGenerator.lzy(workflows / "pull-request.yml", GitHubActionsGenerator.pullRequest(Version.Java)) ::
-    BlowoutYamlGenerator.lzy(workflows / "taig.yml", GitHubActionsGenerator.tag(Version.Java)) ::
-    Nil
-}
-
-name := "sbt-blowout"
+lazy val root = project
+  .in(file("."))
+  .aggregate(core, jsonCirce, yamlCirce)
+  .enablePlugins(BlowoutYamlPlugin)
+  .settings(noPublishSettings)
+  .settings(
+    blowoutGenerators ++= {
+      val workflows = file(".github") / "workflows"
+      BlowoutYamlGenerator.lzy(workflows / "main.yml", GitHubActionsGenerator.main(Version.Java)) ::
+        BlowoutYamlGenerator.lzy(workflows / "pull-request.yml", GitHubActionsGenerator.pullRequest(Version.Java)) ::
+        BlowoutYamlGenerator.lzy(workflows / "taig.yml", GitHubActionsGenerator.tag(Version.Java)) ::
+        Nil
+    },
+    name := "sbt-blowout"
+  )
 
 lazy val core = project
   .in(file("modules/core"))
