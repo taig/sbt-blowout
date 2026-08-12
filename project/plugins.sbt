@@ -7,7 +7,7 @@ addSbtPlugin("io.taig" % "sbt-houserules" % "0.12.0")
 // against HEAD. Keep the dependencies below in sync with the `core` and `yamlCirce` modules.
 libraryDependencies ++=
   "io.github.java-diff-utils" % "java-diff-utils" % "4.17" ::
-    "io.circe" %% "circe-yaml" % "0.15.2" ::
+    "io.circe" %% "circe-yaml" % "0.15.3" ::
     Nil
 
 Compile / unmanagedSourceDirectories ++= {
