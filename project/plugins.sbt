@@ -6,7 +6,7 @@ addSbtPlugin("io.taig" % "sbt-houserules" % "0.12.0")
 // sources right here instead of resolving a published artifact; blowoutCheck then always validates
 // against HEAD. Keep the dependencies below in sync with the `core` and `yamlCirce` modules.
 libraryDependencies ++=
-  "io.github.java-diff-utils" % "java-diff-utils" % "4.17" ::
+  "io.github.java-diff-utils" % "java-diff-utils" % "4.18" ::
     "io.circe" %% "circe-yaml" % "0.16.1" ::
     Nil
 
